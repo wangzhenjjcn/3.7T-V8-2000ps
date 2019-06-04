@@ -2,5 +2,5 @@ requests
 lxml
 bs4
 selenium
-
+pytesseract
 

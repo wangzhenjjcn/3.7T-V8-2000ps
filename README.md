@@ -36,6 +36,7 @@ Python （计算机程序设计语言）
 - [x] lxml
 - [x] bs4
 - [x] selenium
+- [x] pytesseract
 
 ```python
 #!/usr/bin/env python
