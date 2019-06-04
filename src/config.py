@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 # -*- coding:utf-8 -*-
 
 import sys
@@ -9,7 +9,7 @@ class Config:
     def __init__(self, path):
         self.path = path
         self.cf = configparser.ConfigParser()
-        self.cf.read(self.path)
+        self.cf.read(self.path,encoding="utf-8")
 
     def get(self, field, key):
         result = ""
@@ -22,7 +22,7 @@ class Config:
     def set(self, filed, key, value):
         try:
             self.cf.set(field, key, value)
-            self.cf.write(open(self.path, 'w'))
+            self.cf.write(open(self.path, 'w',encoding="utf-8"))
         except:
             return False
         return True
@@ -31,27 +31,40 @@ class Config:
 def read_config(config_file_path, field, key):
     cf = configparser.ConfigParser()
     try:
-        cf.read(config_file_path)
+        cf.read(config_file_path,encoding="utf-8")
         if field in cf:
             result = cf[field][key]
         else:
             return ''
     except configparser.Error as e:
+        print("eeeeeeeeeeeeeeeeeeeer")
         print(e)
         return ''
     return result
 
 
+
+def read_configs(config_file_path, field):
+    cf = configparser.ConfigParser()
+    try:
+        cf.read(config_file_path,encoding="utf-8")
+        if field in cf:
+            result = cf[field]
+        else:
+            return ''
+    except configparser.Error as e:
+        return ''
+    return result
+
 def write_config(config_file_path, field, key, value):
     cf = configparser.ConfigParser()
     try:
-        cf.read(config_file_path)
+        cf.read(config_file_path,encoding="utf-8")
         if field not in cf:
             cf.add_section(field)
         cf[field][key] = value
-        cf.write(open(config_file_path, 'w'))
+        cf.write(open(config_file_path, 'w',encoding="utf-8"))
     except configparser.Error as e:
-        print(e)
         return False
     return True
 
