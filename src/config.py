@@ -1,6 +1,7 @@
 #!/usr/bin/env python
-# -*- coding:utf-8 -*-
+# -*- coding:UTF-8 -*-
 
+import os
 import sys
 import configparser
 
@@ -8,65 +9,136 @@ import configparser
 class Config:
     def __init__(self, path):
         self.path = path
+        removeBom(self.path)
         self.cf = configparser.ConfigParser()
-        self.cf.read(self.path,encoding="utf-8")
+        self.cf.read(self.path,encoding='utf_8')
 
     def get(self, field, key):
-        result = ""
+        result = ''
         try:
             result = self.cf.get(field, key)
         except:
-            result = ""
+            result = ''
         return result
 
     def set(self, filed, key, value):
         try:
             self.cf.set(field, key, value)
-            self.cf.write(open(self.path, 'w',encoding="utf-8"))
+            self.cf.write(open(self.path, 'w+',encoding='utf_8'))
         except:
             return False
         return True
 
-
 def read_config(config_file_path, field, key):
     cf = configparser.ConfigParser()
     try:
-        cf.read(config_file_path,encoding="utf-8")
+        removeBom(config_file_path)
+        cf.read(config_file_path,encoding='utf_8')
         if field in cf:
             result = cf[field][key]
         else:
             return ''
     except configparser.Error as e:
-        print("eeeeeeeeeeeeeeeeeeeer")
+        print('eeeeeeeeeeeeeeeeeeeer')
         print(e)
         return ''
     return result
-
-
+ 
 
 def read_configs(config_file_path, field):
     cf = configparser.ConfigParser()
     try:
-        cf.read(config_file_path,encoding="utf-8")
+        removeBom(config_file_path)
+        cf.read(config_file_path,encoding='utf_8')
         if field in cf:
             result = cf[field]
         else:
-            return ''
+            return []
     except configparser.Error as e:
+        print(e)
         return ''
     return result
 
 def write_config(config_file_path, field, key, value):
     cf = configparser.ConfigParser()
     try:
-        cf.read(config_file_path,encoding="utf-8")
+        removeBom(config_file_path)
+        cf.read(config_file_path,encoding='utf_8')
         if field not in cf:
             cf.add_section(field)
         cf[field][key] = value
-        cf.write(open(config_file_path, 'w',encoding="utf-8"))
+        cf.write(open(config_file_path, 'w+',encoding='utf_8'))
     except configparser.Error as e:
+        print(e)
         return False
     return True
+
+def removeBom(file):
+      BOM = b'\xef\xbb\xbf'
+      existBom = lambda s: True if s==BOM else False
+     
+      f = open(file, 'rb')
+      if existBom( f.read(3) ):
+          fbody = f.read()
+          #f.close()
+          with open(file, 'wb') as f:
+              f.write(fbody)
+
+
+def readConfig(confName,path):
+    if not os.path.exists("config.ini"):
+        print("配置文件不存在，创建新配置")
+        with open("config.ini", 'w+', encoding='utf_8') as f:
+            print("初始化空配置文件")
+            return ""
+    path_=path
+    if path==None or path=="":
+        path_="通用设置"
+    data=''
+    try:
+        data= read_config('config.ini', path_, confName)
+    except Exception as e:
+        print(e)
+        return ''
+    return data
+
+def getConf(name,initValue,path):
+    if not os.path.exists("config.ini"):
+        print("配置文件不存在，创建新配置")
+        with open("config.ini", 'w+', encoding='utf_8') as f:
+            print("初始化空配置文件")
+            return ""
+    path_=path
+    if path==None or path=="":
+        path_="通用设置"
+    data=''
+    try:
+        data= read_config('config.ini', path_, name)
+
+    except Exception as e:
+        print(e)
+        value= ''
+    value= data
+
+    if value==None or value=="":
+        tmp_=str(initValue)+""
+        if tmp_==None or tmp_=="":
+            return None
+        writeConfig(name,tmp_,path)
+        return initValue
+    else:
+        return value
+
+ 
+def writeConfig(confName,confValue,path):
+    if not os.path.exists("config.ini"):
+        print("配置文件不存在，创建新配置")
+        with open("config.ini", 'w+', encoding='utf_8') as f:
+            print("初始化空配置文件")
+    path_=path
+    if path==None:
+        path_="通用设置"
+    write_config('config.ini', path_, confName,confValue)
 
 
 if __name__ == "__main__":
