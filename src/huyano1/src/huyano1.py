@@ -206,7 +206,7 @@ class Application_ui(Frame):
         self.VipsLevelSevenCheck.place(relx=0.332, rely=0.384, relwidth=0.17, relheight=0.034)
 
         self.VipsLevelAllCheckVar = StringVar(value='0')
-        self.style.configure('VipsLevelAllCheck.TCheckbutton',font=('宋体',9))
+        self.style.configure('VipsLevelAllCheck.TCheckbutton',foreground='#000000', font=('宋体',9))
         self.VipsLevelAllCheck = Checkbutton(self.Frame2, text='欢迎所有', variable=self.VipsLevelAllCheckVar, style='VipsLevelAllCheck.TCheckbutton')
         self.VipsLevelAllCheck.place(relx=0.637, rely=0.384, relwidth=0.253, relheight=0.034)
 
@@ -403,7 +403,7 @@ class Application_ui(Frame):
         self.LogInfoLable.place(relx=0.189, rely=0.03, relwidth=0.793, relheight=0.021)
 
         self.style.configure('CopyRightLabel1.TLabel',anchor='w', foreground='#6D6D6D', font=('宋体',9))
-        self.CopyRightLabel1 = Label(self.Main, text='CopyRight@ 2020 WangZhen <wangzhenjjcn@gmail.com> myazure.org', style='CopyRightLabel1.TLabel')
+        self.CopyRightLabel1 = Label(self.Main, text='CopyRight@ 2020 WangZhen <wangzhenjjcn@gmail.com> Myazure.org', style='CopyRightLabel1.TLabel')
         self.CopyRightLabel1.place(relx=0.759, rely=0.959, relwidth=0.227, relheight=0.031)
 
 

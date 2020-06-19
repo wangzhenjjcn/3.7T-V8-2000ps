@@ -130,6 +130,7 @@ Begin VB.Form »¢ÑÀÇÐ¿ËÄÖ
          Begin VB.Label WebVipsLable 
             AutoSize        =   -1  'True
             Caption         =   "¹ó±öÏ¯:"
+            ForeColor       =   &H80000008&
             Height          =   300
             Left            =   360
             TabIndex        =   56
@@ -139,6 +140,7 @@ Begin VB.Form »¢ÑÀÇÐ¿ËÄÖ
          Begin VB.Label WebFansLable 
             AutoSize        =   -1  'True
             Caption         =   "·ÛË¿Ï¯:"
+            ForeColor       =   &H80000008&
             Height          =   300
             Left            =   2760
             TabIndex        =   55
@@ -148,6 +150,7 @@ Begin VB.Form »¢ÑÀÇÐ¿ËÄÖ
          Begin VB.Label WebChatsLable 
             AutoSize        =   -1  'True
             Caption         =   "¹«ÆÁ:"
+            ForeColor       =   &H80000008&
             Height          =   300
             Left            =   5160
             TabIndex        =   54
@@ -180,20 +183,20 @@ Begin VB.Form »¢ÑÀÇÐ¿ËÄÖ
          TabIndex        =   20
          Top             =   360
          Width           =   4335
-         Begin VB.CheckBox Check1 
+         Begin VB.CheckBox ThanksOnTVGiftCheck 
             Caption         =   "´ðÐ»ÉÏµçÊÓÀñÎï"
-            Height          =   255
+            Height          =   375
             Left            =   1800
             TabIndex        =   83
             Top             =   2400
-            Width           =   1575
+            Width           =   2175
          End
          Begin VB.TextBox ThanksGiftMoreThanInput 
             Height          =   270
             Left            =   2520
             TabIndex        =   77
             Text            =   "0"
-            Top             =   2880
+            Top             =   3000
             Width           =   735
          End
          Begin VB.TextBox ThanksGiftInfoFormartInput 
@@ -246,7 +249,7 @@ Begin VB.Form »¢ÑÀÇÐ¿ËÄÖ
          End
          Begin VB.CheckBox ThanksGiftCheck 
             Caption         =   "´ðÐ»ÀñÎï"
-            Height          =   255
+            Height          =   375
             Left            =   120
             TabIndex        =   40
             Top             =   2880
@@ -254,7 +257,7 @@ Begin VB.Form »¢ÑÀÇÐ¿ËÄÖ
          End
          Begin VB.CheckBox ThanksShareCheck 
             Caption         =   "´ðÐ»·ÖÏí"
-            Height          =   255
+            Height          =   375
             Left            =   120
             TabIndex        =   39
             Top             =   2400
@@ -262,18 +265,18 @@ Begin VB.Form »¢ÑÀÇÐ¿ËÄÖ
          End
          Begin VB.CheckBox WelcomeVipsCheck 
             Caption         =   "»¶Ó­¹ó±ö"
-            Height          =   255
+            Height          =   375
             Left            =   120
             TabIndex        =   38
-            Top             =   3480
+            Top             =   3360
             Width           =   1095
          End
          Begin VB.CheckBox WelcomeFansCheck 
             Caption         =   "»¶Ó­·ÛË¿"
-            Height          =   255
+            Height          =   375
             Left            =   120
             TabIndex        =   37
-            Top             =   4680
+            Top             =   4560
             Width           =   1095
          End
          Begin VB.CheckBox VipsLevelOneCheck 
@@ -334,6 +337,7 @@ Begin VB.Form »¢ÑÀÇÐ¿ËÄÖ
          End
          Begin VB.CheckBox VipsLevelAllCheck 
             Caption         =   "»¶Ó­ËùÓÐ"
+            ForeColor       =   &H80000008&
             Height          =   375
             Left            =   2760
             TabIndex        =   29
@@ -409,7 +413,7 @@ Begin VB.Form »¢ÑÀÇÐ¿ËÄÖ
             Height          =   375
             Left            =   3480
             TabIndex        =   79
-            Top             =   2880
+            Top             =   3000
             Width           =   495
          End
          Begin VB.Label ThanksGiftMoreThanLable 
@@ -417,7 +421,7 @@ Begin VB.Form »¢ÑÀÇÐ¿ËÄÖ
             Height          =   375
             Left            =   1800
             TabIndex        =   78
-            Top             =   2880
+            Top             =   3000
             Width           =   495
          End
          Begin VB.Label BroadcastModelText 
@@ -507,6 +511,7 @@ Begin VB.Form »¢ÑÀÇÐ¿ËÄÖ
          Begin VB.Label RoomIdLable 
             AutoSize        =   -1  'True
             Caption         =   "·¿¼äºÅ:"
+            ForeColor       =   &H80000008&
             Height          =   255
             Left            =   120
             TabIndex        =   45
@@ -567,6 +572,7 @@ Begin VB.Form »¢ÑÀÇÐ¿ËÄÖ
             Caption         =   "Æô¶¯»úÆ÷ÈË"
             Height          =   495
             Left            =   360
+            MaskColor       =   &H8000000F&
             TabIndex        =   19
             Top             =   600
             Width           =   1575
@@ -714,6 +720,7 @@ Begin VB.Form »¢ÑÀÇÐ¿ËÄÖ
       End
       Begin VB.Label LogInfoLable 
          Caption         =   "»úÆ÷ÈËÎ´Æô¶¯,·¿¼äºÅÎ´Â¼Èë,·¿¹ÜºÅÎ´µÇÂ¼,ÇëÏÈµÇÂ¼·¿¹ÜºÅ²¢Â¼Èë·¿¼äºÅÆô¶¯»úÆ÷ÈË"
+         ForeColor       =   &H000000FF&
          Height          =   255
          Left            =   4800
          TabIndex        =   74
@@ -721,12 +728,13 @@ Begin VB.Form »¢ÑÀÇÐ¿ËÄÖ
          Width           =   20175
       End
       Begin VB.Label CopyRightLabel1 
-         Caption         =   "CopyRight@ 2020 WangZhen <wangzhenjjcn@gmail.com> myazure.org"
+         Caption         =   "CopyRight@ 2020 WangZhen <wangzhenjjcn@gmail.com> Myazure.org"
+         ForeColor       =   &H80000011&
          Height          =   375
          Left            =   19320
          TabIndex        =   73
          Top             =   11520
-         Width           =   5895
+         Width           =   5775
       End
    End
 End
